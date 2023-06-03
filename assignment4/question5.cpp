@@ -1,8 +1,6 @@
-Given an integer array nums, find three numbers whose product is maximum and return the maximum product.
-Example 1:
-Input: nums = [1,2,3]
-Output: 6
- 
+You have n coins and you want to build a staircase with these coins. The staircase consists of k rows where the ith row has exactly i coins. The last row of the staircase **may be** incomplete.
+Given the integer n, return *the number of **complete rows** of the staircase you will build*.
+
  /*---------my code is start from here-------------*/
 #include <iostream>
 class Solution {
