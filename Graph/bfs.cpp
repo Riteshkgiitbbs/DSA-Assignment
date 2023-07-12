@@ -2,7 +2,7 @@
 
 
 
-void bfs( unordered_map<int,list<int> > &adjList,  unordered_map<int,bool> &visited,vector<int> &ans,
+void bfs( unordered_map<int,set<int> > &adjList,  unordered_map<int,bool> &visited,vector<int> &ans,
 int node ){
    queue<int> q;
    q.push(node);
@@ -23,18 +23,18 @@ int node ){
 }
 
 
-void preparedAdjList(  unordered_map<int,list<int> >&adjList,vector<pair<int, int>> &edges){
+void preparedAdjList(  unordered_map<int,set<int> >&adjList,vector<pair<int, int>> &edges){
     for(int  i=0;i<edges.size();i++){
         int u=edges[i].first;
         int v=edges[i].second;
 
-        adjList[u].push_back(v);
-        adjList[v].push_back(u);
+        adjList[u].insert(v);
+        adjList[v].insert(u);
     }
 }
 vector<int> BFS(int vertex, vector<pair<int, int>> edges)
 {
-    unordered_map<int,list<int> >adjList;
+    unordered_map<int,set<int> >adjList;
     vector<int> ans;
     unordered_map<int,bool> visited;
     preparedAdjList(adjList,edges);
@@ -44,5 +44,6 @@ vector<int> BFS(int vertex, vector<pair<int, int>> edges)
             bfs(adjList,visited,ans,i);
         }
     }
+    return ans;
 }
-// this code gives time limit exceed.! please ask to any onne
+// i have used set because sort the answer and list is unable to do this.
